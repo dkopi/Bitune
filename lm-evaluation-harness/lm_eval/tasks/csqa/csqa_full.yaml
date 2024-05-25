@@ -1,0 +1,19 @@
+task: csqa_full
+dataset_path: tau/commonsense_qa
+dataset_name: null
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+test_split: null
+doc_to_text: "Question: {{question}}\n\nChoices:\n{{'\n'.join(choices.text)}}\n\nAnswer:"
+doc_to_target: "{{choices.label.index(answerKey)}}"
+doc_to_choice: "{{choices.text}}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
