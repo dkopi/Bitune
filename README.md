@@ -29,7 +29,7 @@ pip install -e lm-evaluation-harness
 - **Instruction-Tuning Setup**: Run the `instruct.sh` script.
 - **Downstream Task Training**: Run the `downstream.sh` script. Ensure to set the correct number of update steps (based on the values provided in the appendix), and uncomment the appropriate lines for the dataset name, evaluations (at the very bottom), and the method name.
 
-## A Brief Overview of the <span style="font-size:12px;text-decoration: line-through;">Spaghetti</span> Code
+## A Brief Overview of the <sub><sup><strike>Spaghetti</strike></sup></sub> Code
 
 - Implementation required a few modifications of HuggingFace model classes, available in the `models` directory:
   - Modified KV-cache, so it keeps the computation graph for gradients.
