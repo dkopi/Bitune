@@ -56,12 +56,12 @@ The following versions of the libraries have been used:
 ## Bibtex
 
 ```bibtex
-@misc{kopiczko2024vera,
-    title={VeRA: Vector-based Random Matrix Adaptation},
-    author={Dawid J. Kopiczko and Tijmen Blankevoort and Yuki M. Asano},
-    year={2024},
-    eprint={2310.11454},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@misc{kopiczko2024bitune,
+      title={Bitune: Bidirectional Instruction-Tuning},
+      author={Dawid J. Kopiczko and Tijmen Blankevoort and Yuki M. Asano},
+      year={2024},
+      eprint={2405.14862},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 ```
