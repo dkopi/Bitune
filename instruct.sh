@@ -20,7 +20,7 @@ group="instruct"
 C=607
 
 name="Baseline (LoRA)" # baseline finetuning
-# name="DoubleLoRA(C) + BiDirAttn" # Bilora
+# name="DoubleLoRA(C) + BiDirAttn" # Bitune
 
 
 # for learning_rate in "1e-3"; do

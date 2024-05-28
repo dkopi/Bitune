@@ -24,7 +24,7 @@ group="instruct"
 C=607
 
 # name="Baseline (LoRA)" # baseline finetuning
-name="DoubleLoRA(C) + BiDirAttn" # Bilora
+name="DoubleLoRA(C) + BiDirAttn" # Bitune
 
 
 for learning_rate in "1e-3"; do
@@ -39,7 +39,7 @@ source common_1.sh #
 done
 
 HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task gsm8k --num_fewshot 0
-HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task arc_full
-HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task csqa_full
-HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task piqa_full
-HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task siqa_full
+# HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task arc_full
+# HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task csqa_full
+# HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task piqa_full
+# HOME_DIR=$HOME_DIR python eval.py --group ${group} --model_id ${run_id} --bs 1 --task siqa_full

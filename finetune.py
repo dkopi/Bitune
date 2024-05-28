@@ -33,8 +33,6 @@ from peft import (
     prepare_model_for_kbit_training,
 )
 
-from passes import prepare_model_for_pass
-
 
 def log_trainable_params(accelerator, model):
     _trainable_params = 0
@@ -340,8 +338,6 @@ else:
 if args.gradient_checkpointing == 1:
     model.gradient_checkpointing_enable()
 
-model = prepare_model_for_pass(model, lora_config, args)
-
 _trainable_params = log_trainable_params(accelerator, model)
 
 set_seed(args.seed)
@@ -443,7 +439,7 @@ while True:
                 grad_norm = accelerator.clip_grad_norm_(model.parameters(), args.clip)
             else:
                 grad_norm = 0.0
-                
+
             optimizer.step()
             lr_scheduler.step()
             optimizer.zero_grad()

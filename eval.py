@@ -106,6 +106,3 @@ if __name__ == "__main__":
         run.update()
         if remove:
             os.system(f"rm -rf {pretrained}")
-
-    if "KEK" in os.environ:
-        breakpoint()
