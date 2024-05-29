@@ -37,12 +37,13 @@ pip install -e lm-evaluation-harness
   - Modified attention mask based on `enforce_bidir` parameter of the `forward()` function.
   - Added a code snippet inside the `forward()` function responsible for calling the _Bitune wrapper_.
 - The _Bitune wrapper_ (`_pass_fn()` in the `passes.py` file):
-  - Passes the prompt through the model two times two obtain to sets of KV-cache, while setting proper LoRA adapters & attention masks for each pass.
+  - Passes the prompt through the model two times to obtain two sets of KV-cache, while setting proper LoRA adapters & attention masks for each pass.
   - Calls mixing modules to combine two sets of features (`pass_scale_k`, `pass_scale_v`).
+  - Does the final pass on the answer (in case of training), or generates the first answer token (for inference). In the case of further generation of tokens, _Bitune wrapper_ is not called at all, as the prompt's KV-cache is already obtained and stored, so the generation continues as in unmodified model.
   - Sets all LoRA's parameters as trainable again, as by default `peft` library sets inactive adapters as non-trainable.
 - The mixing module (class `PassScale` defined in `models/think_gemma.py`):
-  - Contains trainable coefficients for mixing two sets of features.
-  - Defines `forward()` function that applies the mixing operation based on the variant specified in the config (`config.pass_type`). Our final method is defined by the variant `607` (the one used for experiments), and it's simplified version `801`.
+  - Contains trainable coefficients for mixing two sets of features, separate for keys & values, so two coefficients per attention block of the model.
+  - Defines `forward()` function that applies the mixing operation based on the variant specified in the config (`config.pass_type`). Our final method is defined by the variant `607` (the one used for experiments), and its simplified version `801`.
 
 ## Library Versions
 
