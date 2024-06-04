@@ -28,6 +28,7 @@ pip install -e lm-evaluation-harness
 
 - **Instruction-Tuning Setup**: Run the `instruct.sh` script.
 - **Downstream Task Training**: Run the `downstream.sh` script. Ensure to set the correct number of update steps (based on the values provided in the appendix), and uncomment the appropriate lines for the dataset name, evaluations (at the very bottom), and the method name.
+- **Ablations**: Uncomment the lines for selected ablation in `ablations.sh` and run the script.
 
 ## A Brief Overview of the <sub><sup><strike>Spaghetti</strike></sup></sub> Code
 
